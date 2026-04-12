@@ -102,7 +102,7 @@ Jeg har kørt scriptet for både **heads-up** (én mod én) og med **tre spiller
 
 Estimaterne er fra **preflop**: i hver simulation trækkes alle fem fælleskort tilfældigt (ingen kendt flop endnu). Selve sampleren er ikke begrænset til det — i `mc_poker.py` kan du med **`BOARD_CARDS`** låse **0–5** kort fast, fx flop (3), efter turn (4) eller hele boardet ved **river** (5).
 
-| Situation | **Equity** (ca., erstatter $P(\text{win}\mid H)$ her) | 95 % CI | Køretid (stinkpad / `mc_poker.py`) |
+| Situation | **Equity** (ca., erstatter $P(\text{win}\mid H)$ her) @10k samples | 95 % CI @10k samples| Køretid (stinkpad / `mc_poker.py`) |
 |-----------|----------------------------------------------------------|---------|-------------------------------------|
 | **A♥ K♠** · heads-up | $\approx 65{,}19\,\%$ | $64{,}2\,\%$–$66{,}2\,\%$ | 10k: 0.1 s · 100k: 1.1 s · 1M: 12 s |
 | **2♥ 3♠** · heads-up | $\approx 35{,}3\,\%$ | $34{,}3\,\%$–$36{,}3\,\%$ | 10k: 0.1 s · 100k: 1.1 s · 1M: 12 s |
