@@ -1,3 +1,7 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
 [project]
 name = "store-sager"
 version = "0.1.0"
@@ -5,13 +9,14 @@ description = "Store sager der skal give os store kager"
 readme = "README.md"
 requires-python = ">=3.12"
 dependencies = [
-    "poker",
-    "stocks",
+    "matplotlib>=3.10.8",
+    "torch>=2.11.0",
+    "tqdm>=4.67.0",
+    "yfinance>=1.3.0",
 ]
 
-[tool.uv.sources]
-poker = { workspace = true }
-stocks = { workspace = true }
+[project.scripts]
+mc-poker = "poker.mc_poker:main"
 
-[tool.uv.workspace]
-members = ["poker-library", "stocks-library"]
+[tool.hatch.build.targets.wheel]
+packages = ["stocks", "poker"]

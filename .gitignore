@@ -48,3 +48,6 @@ Thumbs.db
 .env
 .env.*
 !.env.example
+
+# stocks: Yahoo Finance (yfinance) local SQLite cache under datasets/data/yf/
+stocks/datasets/data/yf/
