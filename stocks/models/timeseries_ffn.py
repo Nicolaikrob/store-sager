@@ -111,7 +111,7 @@ if __name__ == "__main__":
 
     # Symbol for test-period return/close plots. Must appear in the test split after purge,
     # unless ``None`` — then a random test-split ticker is chosen.
-    ticker: str | None = "GOOGL"
+    ticker: str | None = "AAPL"
 
     train_loader, val_loader, test_loader, ds = build_yf_window_loaders(
         batch_size=batch_size,
@@ -272,11 +272,12 @@ if __name__ == "__main__":
 
     fig.tight_layout()
 
-    runs_dir = Path(__file__).resolve().parent.parent / "runs"
-    runs_dir.mkdir(parents=True, exist_ok=True)
+    from stocks.experiments import RUNS_DIR
+    
+    RUNS_DIR.mkdir(parents=True, exist_ok=True)
     timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
     # ASCII-safe filename (ticker is already a valid symbol string)
-    save_path = runs_dir / f"timeseries_ffn_{pick_sym}_{timestamp}.png"
+    save_path = RUNS_DIR / f"timeseries_ffn_{pick_sym}_{timestamp}.png"
     fig.savefig(save_path, dpi=150, bbox_inches="tight")
     print(f"Saved figure to {save_path}")
     plt.show()
